@@ -3,6 +3,7 @@ using ALLMVC.Data;
 using ALLMVC.Dependency_Injection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -32,7 +33,8 @@ namespace ALLMVC
             services.AddDistributedMemoryCache();  
             services.AddSession(options => {  
                 options.IdleTimeout = TimeSpan.FromSeconds(15);//You can set Time   
-            });  
+            });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();  
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -41,6 +43,7 @@ namespace ALLMVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddMemoryCache();
             services.AddSingleton<IAgeCal, AgeCal>();
         }
 
