@@ -22,6 +22,26 @@ namespace ALLMVC.Controllers
         {
             return View();
         }
+        public IActionResult google()
+        {
+            return View();
+        }
+        public IActionResult facebook()
+        {
+            return View();
+        }
+        public IActionResult linkedin()
+        {
+            return View();
+        }
+        public IActionResult youtube()
+        {
+            return View();
+        }
+        public IActionResult twitter()
+        {
+            return View();
+        }
 
     }
 }

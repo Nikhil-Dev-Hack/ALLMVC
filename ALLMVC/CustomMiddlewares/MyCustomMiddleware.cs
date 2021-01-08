@@ -25,7 +25,22 @@ namespace ALLMVC.CustomMiddlewares
                 httpContext.Response.Redirect("https://www.google.com");
                 
             }
-
+            else if (url.Contains("/AllView/facebook"))
+            {
+                httpContext.Response.Redirect("https://www.facebook.com");
+            }
+            else if (url.Contains("/AllView/linkedin"))
+            {
+                httpContext.Response.Redirect("https://in.linkedin.com");
+            }
+            else if (url.Contains("/AllView/youtube"))
+            {
+                httpContext.Response.Redirect("https://www.youtube.com");
+            }
+            else if (url.Contains("/AllView/twitter"))
+            {
+                httpContext.Response.Redirect("https://twitter.com");
+            }
             return _next(httpContext);
         }
     }

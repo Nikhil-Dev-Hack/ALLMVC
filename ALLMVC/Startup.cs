@@ -1,5 +1,6 @@
 using ALLMVC.CustomMiddlewares;
 using ALLMVC.Data;
+using ALLMVC.Dependency_Injection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +36,7 @@ namespace ALLMVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSingleton<IAgeCal, AgeCal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +53,7 @@ namespace ALLMVC
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            //app.UseStatusCodePages();
             app.UseMyCustomMiddleware();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
