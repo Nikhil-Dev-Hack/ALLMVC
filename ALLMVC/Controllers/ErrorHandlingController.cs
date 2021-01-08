@@ -33,6 +33,7 @@ namespace ALLMVC.Controllers
                 case 404:
                     ViewBag.ErrorMesage = "Sorry";
                     logger.LogWarning($"404 Error occured path = {StatusCodeResult.OriginalPath}" + $"and QueryString = {StatusCodeResult.OriginalPath}");
+                    logger.LogWarning($"Please check 'c:/temp' ");
                     break;
             };
             return View();
